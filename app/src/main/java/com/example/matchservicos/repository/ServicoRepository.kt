@@ -22,12 +22,12 @@ class ServicoRepository(private val context: Context) : DefaultRepository<Servic
         return MatchServicos.getInstance(context)?.getServicoDAO()?.buscarPorCategoria(categoria)!!
     }
 
-    fun buscarPorIdUsuario(id: Int): List<ServicoEntidade>? {
+    fun buscarServicoPorIdUsuario(id: Int): List<ServicoEntidade>? {
         return MatchServicos.getInstance(context)?.getServicoDAO()?.buscarPorIdUsuario(id)
     }
 
     override fun deletar(target: ServicoEntidade) {
-        MatchServicos.getInstance(context)?.getServicoDAO()?.delete(target)
+        MatchServicos.getInstance(context)?.getServicoDAO()?.deletar(target)
     }
 
 }

@@ -24,7 +24,6 @@ class BuscarServicoActivity : AppCompatActivity() {
     lateinit var servicoViewModel: ServicoViewModel
 
     private var usuarioId: Int? = null
-    private var meusServicos: String? = null
 
     private val servicoRepository = ServicoRepository(this)
 
@@ -106,7 +105,6 @@ class BuscarServicoActivity : AppCompatActivity() {
             tvSemServicoCadastrado.text = "Por enquanto não temos serviços cadastrados!"
             tvSemServicoCadastrado.visibility = View.VISIBLE
         }
-        Singleton.meusServicos = ""
     }
 
     private fun buscarServicosPorCategoria() {
@@ -132,8 +130,7 @@ class BuscarServicoActivity : AppCompatActivity() {
     }
 
     private fun buscarServicosPorIdUsuario() {
-        if (usuarioId!! > 0) {
-            val listaServicosPorIdUsuario = servicoRepository.buscarPorIdUsuario(usuarioId!!)
+            val listaServicosPorIdUsuario = servicoRepository.buscarServicoPorIdUsuario(usuarioId!!)
 
             listaServicosPorIdUsuario?.let {
                 startRecyclerView(listaServicosPorIdUsuario)
@@ -144,11 +141,9 @@ class BuscarServicoActivity : AppCompatActivity() {
                     tvSemServicoCadastrado.visibility = View.VISIBLE
                 }
             }
-            Singleton.meusServicos = "meusServicos"
-        }
     }
 
-    private fun startRecyclerView(listaDeServicos: List<ServicoEntidade>) {
+   fun startRecyclerView(listaDeServicos: List<ServicoEntidade>) {
         rvListaServicos.adapter =
             ServicoAdapter(listaDeServicos.toMutableList(), onClickEditar = { servico ->
                 Intent(this, CadastroServicoActivity::class.java).let {
@@ -166,8 +161,7 @@ class BuscarServicoActivity : AppCompatActivity() {
     }
 
     private fun atualizarListasDeServicos() {
-        meusServicos = intent.getStringExtra("meusServicos")
-        if (meusServicos == "meusServicos") {
+        if (Singleton.meusServicos == "meusServicos") {
             llPesquisar.visibility = View.GONE
             buscarServicosPorIdUsuario()
         } else {

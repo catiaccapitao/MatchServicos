@@ -49,15 +49,17 @@ class HomeActivity : AppCompatActivity() {
 
     private fun criarListeners() {
         ivEditar.setOnClickListener { proximaTela(CadastroUsuarioActivity::class.java) }
-        tvBuscarServico.setOnClickListener { proximaTela(BuscarServicoActivity::class.java) }
+        tvBuscarServico.setOnClickListener {
+            Singleton.meusServicos = ""
+            proximaTela(BuscarServicoActivity::class.java)
+        }
         tvCadastrarServico.setOnClickListener { proximaTela(CadastroServicoActivity::class.java) }
         tvMeusServicos.setOnClickListener {
-            val it = Intent(this, BuscarServicoActivity::class.java)
-            it.putExtra("usuario_id", usuarioId)
-            it.putExtra("meusServicos", "meusServicos")
-            startActivity(it)
+            Singleton.meusServicos = "meusServicos"
+            proximaTela(BuscarServicoActivity::class.java)
         }
         ivSair.setOnClickListener {
+            Singleton.meusServicos = ""
             proximaTela(LoginActivity::class.java)
             finish()
         }

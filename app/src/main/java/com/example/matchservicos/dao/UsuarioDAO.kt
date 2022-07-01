@@ -11,7 +11,7 @@ interface UsuarioDAO {
     fun inserir(usuarioEntidade: UsuarioEntidade)
 
     @Delete
-    fun delete(usuarioEntidade: UsuarioEntidade)
+    fun deletar(usuarioEntidade: UsuarioEntidade)
 
     @Query("select * from usuario_table where usuario_id = :id")
     fun buscarPorId(id: Int): UsuarioEntidade

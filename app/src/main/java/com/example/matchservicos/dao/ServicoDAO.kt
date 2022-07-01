@@ -10,7 +10,7 @@ interface ServicoDAO {
     fun inserir(servicoEntidade: ServicoEntidade)
 
     @Delete
-    fun delete(servicoEntidade: ServicoEntidade)
+    fun deletar(servicoEntidade: ServicoEntidade)
 
     @Query("SELECT * FROM servico_table")
     fun buscar(): List<ServicoEntidade>
