@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MatchServicos</string>
+
+    <string name="cadastrar">Cadastrar</string>
+    <string name="cadastro_usuario">Cadastro de Usuário</string>
+    <string name="cadastro_servico">Cadastro de Serviço</string>
+
+    <string name="nome">Nome</string>
+    <string name="email">E-mail</string>
+    <string name="telefone">Telefone</string>
+    <string name="senha">Senha</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+
+    <string name="categoria">Categoria</string>
+    <string name="descricao">Descrição</string>
+
+    <string name="logradouro">Logradouro</string>
+    <string name="numero">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="pais">País</string>
+
+</resources>
